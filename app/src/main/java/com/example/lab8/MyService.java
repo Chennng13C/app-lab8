@@ -16,7 +16,7 @@ public class MyService extends Service {
                     Intent intent = new Intent(MyService.this,
                             Main2Activity.class );
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                   MyService.this.startActivities(new Intent[]{intent});
+                   MyService.this.startActivity(intent);
 
                 }catch (InterruptedException e){
                     e.printStackTrace();
@@ -33,9 +33,8 @@ public class MyService extends Service {
         super.onStartCommand(intent, flags, startId);
         return START_STICKY;
     }
-
-    public void onDestroy() {
-        super.onDestroy();
+    @Override
+    public void onDestroy() { super.onDestroy();
     }
 
     @Override
